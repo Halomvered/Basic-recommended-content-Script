@@ -1,0 +1,27 @@
+var expression = /(?:www\.|\.com|\W|\d|\bvideo\b|\bsubscribe\b|\bphoto\b|\bof\b|\bthe\b|\bto\b|\bwhy\b|\bways\b|\bhow\b|\bdo\b|\bit\b|\bthis\b|\byou\b|\bfor\b|\ba\b|\byour\b|\bthings\b|\bknow\b|\bbefore\b|\bminute\b|\bvideos\b|\bworking\b|\bout\b|\band\b)/ig
+
+
+var hWords = [...document.querySelectorAll('h2,h1')].map(h => h.textContent.toLowerCase().replace(expression,' ')).toString().split(/[\s,]+/).filter(el => !!el);
+
+
+var descriptionWords = [...document.querySelectorAll('meta')].map( tag => tag.name == 'description'? tag.content.replace(expression,' ').toString().split(/[\s,]+/) : '' ).filter(el => !!el)[0];
+
+var keyWords = [...document.querySelectorAll('meta')].map( tag => tag.name == 'keywords'? tag.content.replace(expression,' ').toString().split(/[\s,]+/) : '' ).filter(el => !!el)[0];
+
+var allKeyWords = [...hWords, ...descriptionWords, ...keyWords];
+
+function sortByFrequency(array) {
+    var frequency = {};
+
+    array.forEach(function(value) { frequency[value] = 0; });
+
+    var uniques = array.filter(function(value) {
+        return ++frequency[value] == 1;
+    });
+
+    return uniques.sort(function(a, b) {
+        return frequency[b] - frequency[a];
+    });
+}
+
+var wordsForAds = sortByFrequency(allKeyWords);
