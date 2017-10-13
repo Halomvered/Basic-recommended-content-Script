@@ -1,7 +1,10 @@
-var expression = /(?:www\.|\.com|\W|\d|\bvideo\b|\bsubscribe\b|\bphoto\b|\bof\b|\bthe\b|\bto\b|\bwhy\b|\bways\b|\bhow\b|\bdo\b|\bit\b|\bthis\b|\byou\b|\bfor\b|\ba\b|\byour\b|\bthings\b|\bknow\b|\bbefore\b|\bminute\b|\bvideos\b|\bworking\b|\bout\b|\band\b)/ig
+//KEYWORD FINDER (Based on the 100 most common words used in english).
+var expression = /(?:www\.|\.com|\W|\d|\bvideo\b|\bsubscribe\b|\bphoto\b|\bvideos\b|\bworking\b|\bout\b|\band\b|\btime\b|\bperson\b|\byear\b|\bway\b|\bday\b|\bthing\b|\bworld\b|\blife\b|\bhand\b|\bpart\b|\beye\b|\bplace\b|\bweek\b|\bcase\b|\bpoint\b|\bgovernment\b|\bcompany\b|\bnumber\b|\bgroup\b|\bproblem\b|\bfact\b|\bbe\b|\bhave\b|\bdo\b|\bsay\b|\bget\b|\bmake\b|\bgo\b|\bknow\b|\btake\b|\bsee\b|\bcome\b|\bthink\b|\blook\b|\bwant\b|\bgive\b|\buse\b|\bfind\b|\btell\b|\bask\b|\bseem\b|\bfeel\b|\btry\b|\bleave\b|\bcall\b|\bgood\b|\bnew\b|\bfirst\b|\blast\b|\blong\b|\bgreat\b|\blittle\b|\bown\b|\bother\b|\bold\b|\bright\b|\bbig\b|\bhigh\b|\bdifferent\b|\bsmall\b|\blarge\b|\bnext\b|\bearly\b|\bimportant\b|\bfew\b|\bpublic\b|\bbad\b|\bsame\b|\bable\b|\bto\b|\bof\b|\bin\b|\bfor\b|\bon\b|\bwith\b|\bat\b|\bby\b|\bfrom\b|\bup\b|\babout\b|\binto\b|\bover\b|\bafter\b|\bthe\b|\band\b|\ba\b|\bthat\b|\bI\b|\bit\b|\bnot\b|\bhe\b|\bas\b|\byou\b|\bthis\b|\bbut\b|\bhis\b|\bthey\b|\bher\b|\bshe\b|\bor\b|\ban\b|\bwill\b|\bmy\b|\bone\b|\ball\b|\bwould\b|\bthere\b|\btheir\b)/ig
 
 
-var hWords = [...document.querySelectorAll('h2,h1')].map(h => h.textContent.toLowerCase().replace(expression,' ')).toString().split(/[\s,]+/).filter(el => !!el);
+
+
+var hWords = [...document.querySelectorAll('h2,h1,h3')].map(h => h.textContent.toLowerCase().replace(expression,' ')).toString().split(/[\s,]+/).filter(el => !!el);
 
 
 var descriptionWords = [...document.querySelectorAll('meta')].map( tag => tag.name == 'description'? tag.content.replace(expression,' ').toString().split(/[\s,]+/) : '' ).filter(el => !!el)[0];
