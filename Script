@@ -48,6 +48,8 @@ newDiv.innerHTML +=
 '<div style="content: ".";clear: both;display: block;height: 0;visibility: hidden;"></div>\n'+
 '</div>'
 
+
+//LOCATION OF INJECTION MUST BE CUSTOMIZED FOR EACH INDIVIDUAL SITE.
 var footer = document.querySelector('footer');
 
 //PREVENTION FOR ACTIVATING THE SCRIPT MORE THAN ONCE
