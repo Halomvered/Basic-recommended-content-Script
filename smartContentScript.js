@@ -5,7 +5,7 @@ var expression = /(?:www\.|\.com|\W|\d|\bvideo\b|\bsubscribe\b|\bphoto\b|\bvideo
 
 
 
-// Array created out of the page's meta tags:description and keywords + h1-h3, and all img.alts.
+// Array created out of the page's meta tags: 'description' and 'keywords' + h1-h3 textContent, and all img.alts.
 //var allKeySources = [...document.querySelectorAll('meta[name="description"],meta[name="keywords"],h1,h2,h3,img[alt]:not([alt=""]')]
 var allKeySources = Array.prototype.slice.call(document.querySelectorAll('meta[name="description"],meta[name="keywords"],h1,h2,h3,img[alt]:not([alt=""]')
 );
@@ -13,8 +13,8 @@ var allKeySources = Array.prototype.slice.call(document.querySelectorAll('meta[n
 function funnelWords(arr){
 var allKeyWords = [];
 
-for(var i = 0; i<arr.length; i++ ){
 //For loop designed to extract all strings out of allKeySources.
+for(var i = 0; i<arr.length; i++ ){
 switch (allKeySources[i].tagName.toLowerCase()) {
   case 'meta':
 allKeyWords.push(allKeySources[i].content);
@@ -49,8 +49,9 @@ function sortByFrequency(array) {
     });
 }
 
-
+// Collect key words in var.
 var allKeyWords = funnelWords(allKeySources);
+// Return most frequent key words by order of appearing most.
 var wordsForAds = sortByFrequency(allKeyWords);
 
 
@@ -70,19 +71,19 @@ aEl.innerHTML += '<li style="display: block;width: 24%;height: 100%; background-
 margin-left:'+(frequency === 0? '.5' : '1')+'%;position: relative;"><p style="text-decoration:none; color: #fff;text-transform: uppercase;text-align: center;top: 10%;font-size:80%;margin:10px 5px 0px 5px;">\
 content related to this site\'s most common keyword #'+(this.frequency + 1)+':</br><strong>'+this.word+'</strong></p></li>';
 
-// Inject html to the relevant placement selector.
+// Instruction to inject html to the relevant placement selector.
 Array.prototype.forEach.call(document.querySelectorAll(placementSelector),function(el){
 el.appendChild(aEl)
 });
 }
 }
 
-// Create an array of top 4 used words as wordClass, each with a matching index to signify its frequency of appearence hierarchy.
+// Create an array of top 4 used words as each as wordClass, each with a matching index to signify its frequency-of-appearence hierarchy.
 var specialWordsClasses = wordsForAds.splice(0,4).map(function (word, index){
 return new wordClass(word, index);
 });
 
-// Create the nesting div inside we will nest the content boxes.
+// Create the nesting div inside which we will nest the content boxes with the script's activation.
 var newDiv = document.createElement('div');
 newDiv.setAttribute('id', 'hal-ad-box');
 newDiv.innerHTML += 
