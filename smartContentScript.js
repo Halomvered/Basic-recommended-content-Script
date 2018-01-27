@@ -131,6 +131,34 @@ var recommendedContent  = function () {
         'color: rgb(8, 173, 2);\n' +
     '}\n' +
 
+    '@media screen and (max-width: 900px) {\n' +
+        '.reco__content-box {\n' +
+            'width: 100%;\n' +
+    '}\n' +
+
+    '@media screen and (max-width: 700px) {\n' +
+        '.reco__content-box {\n' +
+            'height: 80%;\n' +
+            'width: 80%;\n' +
+            'flex-wrap: wrap;\n' +
+            'justify-content: center;\n' +
+            'align-content: center;\n' +
+        '}\n' +
+        '.reco__content-block {\n' +
+            'height: 40%;\n' +
+            'margin: 10px;\n' +
+            'flex: 0 0 40%;\n' +
+        '}\n' +
+        '.reco__content-block > p {\n' +
+        'font-size: 10px;\n' +
+        '}\n' +
+        '.reco__content-block > h3 {\n' +
+            'font-size: 15px;\n' +
+        '}\n' +
+    '}\n' +
+
+    
+
     '@-webkit-keyframes cascade {\n' +
         'from {transform: scale(0.8); opacity:0;}\n' +
         'to {transform: scale(1); opacity:1;}}\n' +
@@ -284,6 +312,6 @@ var recommendedContent  = function () {
     });
 
     };
-};
+}
 
 recommendedContent()
