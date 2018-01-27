@@ -134,6 +134,7 @@ var recommendedContent  = function () {
     '@media screen and (max-width: 900px) {\n' +
         '.reco__content-box {\n' +
             'width: 100%;\n' +
+        '}\n' +
     '}\n' +
 
     '@media screen and (max-width: 700px) {\n' +
