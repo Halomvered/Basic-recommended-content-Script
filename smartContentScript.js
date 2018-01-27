@@ -1,4 +1,4 @@
-var project1 = function () {
+var recommendedContent  = function () {
 
 
     ///////////////////////////////////////////////////
@@ -286,4 +286,4 @@ var project1 = function () {
     };
 };
 
-project1();
+recommendedContent();
