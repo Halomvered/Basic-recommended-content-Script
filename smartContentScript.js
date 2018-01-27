@@ -1,4 +1,4 @@
-var recommendedContent  = function () {
+function () {
 
 
     ///////////////////////////////////////////////////
@@ -284,6 +284,4 @@ var recommendedContent  = function () {
     });
 
     };
-};
-
-recommendedContent();
+}
