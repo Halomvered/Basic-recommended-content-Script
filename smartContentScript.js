@@ -1,4 +1,4 @@
-function () {
+var recommendedContent  = function () {
 
 
     ///////////////////////////////////////////////////
@@ -284,4 +284,6 @@ function () {
     });
 
     };
-}
+};
+
+recommendedContent()
