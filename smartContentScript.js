@@ -2,7 +2,7 @@ var recommendedContent  = function () {
 
 
     ///////////////////////////////////////////////////
-    // Stage #1: Prepare CSS and inject it to the page
+    // Stage #1: Prepare HTML container for the script and inject it to the page
     ///////////////////////////////////////////////////
 
     // If the script setup doesn't already exists in the page then:
